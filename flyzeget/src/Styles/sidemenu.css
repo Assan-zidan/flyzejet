@@ -1,0 +1,318 @@
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+.dashboard{
+  position: relative;
+  width: 100%;
+}
+.main {
+  position: absolute;
+  left: 250px;
+  width: calc(100% - 250px);
+  transition: all 0.5s ease;
+  min-height: 100vh;
+  padding-left: 50px;
+}
+.sidemenu.inactive ~ .main {
+  width: calc(100% - 70px);
+  left: 70px;
+  padding-left: 50px;
+  min-height: 100vh;
+
+}
+.sidemenu {
+  position: fixed;
+  width: 250px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 30px 15px;
+  background-color: #1d1b31;
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+.sidemenu.inactive {
+  width: 70px;
+}
+.sidemenu .top-section {
+  position: relative;
+}
+.sidemenu .top-section .logo {
+  color: white;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  pointer-events: none;
+}
+.sidemenu.inactive .top-section .logo {
+  display: none;
+}
+.sidemenu .top-section .logo i {
+  font-size: 30px;
+  margin-right: 5px;
+
+}
+.sidemenu.sidemenu.inactive .top-section .logo i {
+  font-size: 40px;
+
+}
+.sidemenu .top-section .logo .logo-name {
+  font-size: 20px;
+  font-weight: 400;  
+}
+.sidemenu.sidemenu.inactive .top-section .logo .logo-name { 
+  visibility: hidden;
+}
+.sidemenu .top-section .toggle-menu-btn i {
+  position: absolute;
+  top: 0;
+  left: 90%;
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-50%);
+  cursor: pointer;
+  color: white;
+
+}
+.sidemenu.inactive .top-section .toggle-menu-btn i {
+  left: 50%;
+}
+.sidemenu .search {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+}
+.sidemenu.inactive .search {
+  margin-top: 60px;
+}
+.sidemenu .search input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding-left: 40px;
+  font-size: 18px;
+  color: white;
+  background-color: #1d1b31;
+}
+.sidemenu.inactive .search input {
+  background-color: white;
+}
+.sidemenu .bx-search {
+  position: absolute;
+  color: rgb(151, 145, 145);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
+  font-size: 25px;
+  margin-left: 10px;
+  transition: all 0.4s ease;
+}
+.sidemenu .bx-search:hover {
+  color: #1d1b31;
+}
+.sidemenu .main-menu {
+  width: 100%;
+  padding: 0;
+}
+.sidemenu .main-menu ul {
+  padding: 0;
+}
+.sidemenu .main-menu li {
+  position: relative;
+}
+.sidemenu .main-menu .menu-item {
+  display: flex;
+  align-items: center;
+  line-height: 40px;
+  height: 40px;
+  text-decoration: none;
+  color: white;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.sidemenu .main-menu .menu-item .menu-item-group {
+  display: flex;
+  align-items: center;
+}
+.sidemenu .main-menu .menu-item .menu-item-group i {
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.sidemenu .main-menu a:hover {
+  color: #1d1b31;
+  background-color: white;
+  border-radius: 5px;
+}
+.sidemenu .main-menu  a:active {
+  color: #1d1b31;
+  background-color: white;
+  border-radius: 5px;
+}
+.sidemenu .main-menu .menu-item .menu-item-icon i {
+  text-align: center;
+  width: 40px;
+  height: 40px; 
+  line-height: 40px;
+  border-radius: 5px;
+}
+.sidemenu .main-menu .menu-item .menu-item-name {
+  padding-left: 10px;
+  visibility: visible;
+  transition: all 0.2s ease;
+}
+.sidemenu.inactive  .main-menu .menu-item .menu-item-name {
+  visibility: hidden;
+  display: none;
+}
+.sidemenu.inactive ul li .tool_tip {
+  position: absolute;
+  width: 122px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  left: 122px;
+  top: 0;
+  border-radius: 6px;
+  transform: translate(-50% , -50%);
+  transition: 0s;
+  pointer-events: none;
+  visibility: hidden;
+}
+.sidemenu ul li .tool_tip {
+  display: none;
+}
+.sidemenu .main-menu ul li:hover .tool_tip {
+  top: 50%;
+  opacity: 99;
+  display: block;
+  transition: all 0.4s ease;
+  visibility: visible;
+}
+.sidemenu .main-menu .sub-menu {
+  border-left: 1px solid white;
+  margin-left: 20px;
+  visibility: visible;
+  transition: all 0.2s ease;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in;
+}
+.sidemenu.inactive .main-menu .sub-menu {
+  visibility: hidden;
+  display: none;
+}
+.sidemenu .main-menu .sub-menu.active {
+  max-height: 200px;
+}
+.sidemenu .main-menu .sub-menu a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  padding-left: 40px;
+}
+.sidemenu .main-menu .sub-menu a:hover {
+  color: #11101d;
+  background-color: white;
+}
+.sidemenu .main-menu .sub-menu a:active {
+  color: #11101d;
+  background-color: white;
+}
+.sidemenu .profile-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  width: 100%;
+}
+.sidemenu .profile-content .profile {
+  position: relative;
+  padding: 10px 6px;
+  height: 60px;    
+  background-color: #1d1b31;
+  background-color: none;
+  transition: all 0.4s ease;
+}
+.sidemenu.inactive .profile-content .profile {
+  background-color: #1d1b31;
+}
+.profile-content .profile .profile-detail {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  white-space: none;
+}
+.sidemenu .profile .profile-detail {
+  opacity: 1;
+  pointer-events: auto;
+}
+.profile .profile-detail img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.sidemenu.inactive .profile .profile-detail img {
+  margin-left: 5px;
+}
+.profile .profile-detail .name-job {
+  margin-left: 10px;
+}
+.sidemenu.inactive .profile .profile-detail .name-job {
+  display: none;
+}
+.profile .profile-detail .name-job .name {
+  font-size: 15px;
+  font-weight: 400;
+}
+.profile .profile-detail .name-job .job {
+  font-size: 12px;
+}
+.profile #log-out {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 5px;
+  min-width: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  border-radius: 12px;
+  color: white; 
+  text-align: center;
+  transition: all 0.2s ease;
+  background-color: #1d1b31;
+}         
+.sidemenu.inactive .profile #log-out {
+  display: none;
+}
+.sidemenu .profile #log-out {
+  left: 88%;
+}
+
+
+#description {
+  height:150px
+}
+#img-tache {
+  height: 140px;
+  object-fit: cover;
+}

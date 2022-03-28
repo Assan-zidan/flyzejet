@@ -1,0 +1,46 @@
+
+.connexion {
+  padding-left: 130px;
+  margin-top: 30px;
+  padding-right: 100px;
+}
+.connexion-content {
+  min-height: 100vh;
+}
+.connexion .logo {
+  display: flex;
+  align-items: center;
+}
+.connexion .logo i {
+  font-size: 50px;
+  color: rgb(14, 14, 180);
+}
+.connexion .logo .logo-name {
+  font-size: 30px;
+  font-weight: 400;
+}
+.connexion .title {
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(14, 14, 180);
+  line-height: 40px;
+  margin-top: 30px;
+}
+form .field input {
+  padding-right: 30px;
+  font-size: 14px;
+  font-family: inherit;
+}
+.connexion .error {
+  color: black;
+  background-color: red;
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid red;
+  display: none;
+}
+.connexion-content .banner-content img {
+  width: 100%;
+  height: 500px;
+}

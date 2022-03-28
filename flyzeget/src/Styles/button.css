@@ -1,0 +1,13 @@
+#btn-btn {
+  padding: 8px 30px;
+  border: 2px solid rgb(14, 14, 180);
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(14, 14, 180);
+  transform: scale(1);
+  transition: all 0.3s ease-out;
+}
+#btn-btn:hover {
+  transform: scale(1.05);
+
+}
