@@ -61,7 +61,7 @@ class Connexion extends React.Component {
                             <div className="row logo-content">
                                 <div class="logo">
                                     <i class='bx bxl-c-plus-plus'></i>
-                                    <div class="logo-name">Easejob</div>
+                                    <div class="logo-name">Flyzejet</div>
                                 </div>
                             </div>
                             <div className="row">

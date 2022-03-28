@@ -25,9 +25,10 @@ const Sidemenu = () => {
         },
         { name: "Setting", to: "/setting", iconClassName: "bx bx-coq", toolTipName: "Dasboard"}
     ] 
+    const Navigate = useNavigate;
     const Click = () => {
         localStorage.removeItem('user');
-        useNavigate("/connexion");
+        Navigate("/connexion");
     }
     return (
         <>
@@ -70,7 +71,7 @@ const Sidemenu = () => {
                             <img src="" alt=""/>
                             <div class="name-job">
                                 <div class="name">nazan zidan</div>
-                                <div class="job">web developper</div>
+                                <div class="job">Administrateur</div>
                             </div>
                         </div>
                         <i class='bx bx-log-out' id="log-out" onClick={Click}></i>
