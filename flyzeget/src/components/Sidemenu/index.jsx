@@ -30,7 +30,7 @@ const Sidemenu = () => {
         { name: "Mon compte", to: "#", iconClassName: "bx bx-user", toolTipName: "Compte"}
     ] 
     
-    const Navigate = useNavigate;
+    const Navigate = useNavigate();
     const Click = () => {
         localStorage.removeItem('user')
         Navigate("/")

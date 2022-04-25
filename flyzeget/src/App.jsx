@@ -4,7 +4,7 @@ import PageConnexion from './pages/Connexion'
 import Dashboard from './pages/Dashboard'
 import PageAddUser from './pages/PageAddUser'
 import PageInscription from './pages/PageInscription'
-import Inscription from './pages/Inscription'
+// import Inscription from './pages/Inscription'
 // import PageListeUser from './pages/PageListeUser'
 // import Header from './components/Header'
 import Error from './components/error'
@@ -16,9 +16,9 @@ import Error from './components/error'
             {/* <Route path="/dashbord" element={<Header />} /> */}
             <Route path="/dashbord" element={<Dashboard />} />
             <Route path="/adduser" element={<PageAddUser />} />
-            <Route path="/singup" element={<Inscription />} />
+            {/* <Route path="/singup" element={<Inscription />} /> */}
             {/* <Route path="/PageListeUser" element={<PageListeUser />} /> */}
-            <Route path="/PageInscription" element={<PageInscription />} />
+            <Route path="/singup" element={<PageInscription />} />
             <Route path="*" element={<Error />} />
          </Routes>
       </BrowserRouter>
