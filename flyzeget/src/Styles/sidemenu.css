@@ -20,7 +20,7 @@ li {
 .sidemenu.inactive ~ .main {
   width: calc(100% - 70px);
   left: 70px;
-  padding-left: 50px;
+  padding-left: 150px;
   min-height: 100vh;
 
 }
@@ -152,15 +152,15 @@ li {
   font-weight: 500;
 }
 .sidemenu .main-menu a:hover {
-  color: #1d1b31;
+  color: #1d1b31 !important;
   background-color: white;
   border-radius: 5px;
 }
-.sidemenu .main-menu  a:active {
+/* .sidemenu .main-menu  a:active {
   color: #1d1b31;
   background-color: white;
   border-radius: 5px;
-}
+} */
 .sidemenu .main-menu .menu-item .menu-item-icon i {
   text-align: center;
   width: 40px;
@@ -191,17 +191,14 @@ li {
   transform: translate(-50% , -50%);
   transition: 0s;
   pointer-events: none;
-  visibility: hidden;
 }
 .sidemenu ul li .tool_tip {
   display: none;
 }
-.sidemenu .main-menu ul li:hover .tool_tip {
+.sidemenu.inactive .main-menu ul li:hover .tool_tip {
   top: 50%;
-  opacity: 99;
   display: block;
   transition: all 0.4s ease;
-  visibility: visible;
 }
 .sidemenu .main-menu .sub-menu {
   border-left: 1px solid white;
@@ -216,7 +213,7 @@ li {
   visibility: hidden;
   display: none;
 }
-.sidemenu .main-menu .sub-menu.active {
+.sidemenu .main-menu .sub-menu.activer {
   max-height: 200px;
 }
 .sidemenu .main-menu .sub-menu a {
@@ -232,10 +229,10 @@ li {
   color: #11101d;
   background-color: white;
 }
-.sidemenu .main-menu .sub-menu a:active {
+/* .sidemenu .main-menu .sub-menu a:active {
   color: #11101d;
   background-color: white;
-}
+} */
 .sidemenu .profile-content {
   position: absolute;
   bottom: 0;
@@ -306,6 +303,9 @@ li {
 }
 .sidemenu .profile #log-out {
   left: 88%;
+}
+#log-out:hover {
+  transform: scale(1.1);
 }
 
 

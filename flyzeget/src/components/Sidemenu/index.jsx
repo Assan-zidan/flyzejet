@@ -1,7 +1,9 @@
-import React, { useState } from "react"; //react importation
+import React, { useState, useEffect} from "react"; //react importation
 import MenuItem from "../MenuItem/index"; //importation of MenuItem component
 import "../../Styles/sidemenu.css"; //style sidemenu 
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+import axios from "axios"
+import { Config } from "../../config/Config"
 
 
 /**
@@ -9,37 +11,65 @@ import { useNavigate } from "react-router-dom";
 *@function SideMenu content MenuItem 
 **/
 const Sidemenu = () => {
-    const [inactive,setInactive] = useState(false);
+    const [inactive,setInactive] = useState(false)
+    const [type, settype] = useState('administrateur')
+    const [user, setuser] = useState({})
     const MenuItems = [
-        { name: "Dasboard", to: "/dashboard", iconClassName: "bx bx-chat", toolTipName: "Dashboard" },
+        { name: "Accueil", to: "/dashboard", iconClassName: "bx bx-home-alt-2", toolTipName: "Accueil" },
         {
             name: "Utilisateurs",
-            to: "/dashboard",
+            to: "#",
             iconClassName: "bx bx-user",
-            toolTipName: "Mes taches",
+            toolTipName: "Utilisateurs",
             subMenu : [
                 {name: "Employés", to: "#"},
                 {name: "Intendants", to: "#"},
 
             ]
         },
-        { name: "Setting", to: "/setting", iconClassName: "bx bx-coq", toolTipName: "Dasboard"}
+        { name: "Mon compte", to: "#", iconClassName: "bx bx-user", toolTipName: "Compte"}
     ] 
+    
     const Navigate = useNavigate;
     const Click = () => {
-        localStorage.removeItem('user');
-        Navigate("/connexion");
+        localStorage.removeItem('user')
+        Navigate("/")
     }
+    const userlocal = JSON.parse(localStorage.getItem('user'))
+    useEffect(() => {
+        if (userlocal) {
+           // En-tête d'autorisation
+           const config = {
+              headers: {
+                 Authorization: 'Bearer ' + userlocal['token'],
+                 id: userlocal['userId'],
+              },
+           }
+           // Vérifier si le token est valide
+           axios
+              .get(`${Config}/api/profile/${userlocal['userId']}`, config)
+              .then((res) => {
+                 settype(res.data.type)
+                 setuser(res.data)
+                 console.log(user)
+              })
+              .catch((err) => {
+                 // Redirect to login page
+                 Navigate('/')
+              })
+        } else {
+           Navigate('/')
+        }
+     }, [user, Navigate, userlocal])
     return (
         <>
             <div className={ `sidemenu ${inactive ? "inactive" : ""} `}>
                 <div class="top-section">
-                    <div class="logo">
-                        <i class='bx bxl-c-plus-plus'></i>    
-                        <div class="logo-name">Easejob</div>
+                    <div class="logo">   
+                        <div class="logo-name">FlyZejet</div>
                     </div>
                     <div className="toggle-menu-btn" onClick={ () => setInactive(!inactive) } >
-                        {inactive ? (<i class='bx bx-menu' id="btn" ></i>) : (<i class='fa fa-close'></i>) }
+                        {inactive ? <i class='bx bx-menu' id="btn" ></i> : <i class='fa fa-close'></i> }
                     </div>
                 </div>
                 <div className="search">
@@ -49,6 +79,8 @@ const Sidemenu = () => {
                 <div className="main-menu">
                 <ul>
                     {
+                        type === 'administrateur'
+                        ?
                         MenuItems.map((menuItem, index) => (
                             <MenuItem
                                 key={index}
@@ -62,6 +94,7 @@ const Sidemenu = () => {
                                 }}
                             />
                         ))
+                        :null
                     }
                 </ul>
                 </div>
@@ -70,8 +103,8 @@ const Sidemenu = () => {
                         <div class="profile-detail">
                             <img src="" alt=""/>
                             <div class="name-job">
-                                <div class="name">nazan zidan</div>
-                                <div class="job">Administrateur</div>
+                                <div class="name">{`${user.nom}  ${user.prenom}`}</div>
+                                <div class="job">{type}</div>
                             </div>
                         </div>
                         <i class='bx bx-log-out' id="log-out" onClick={Click}></i>

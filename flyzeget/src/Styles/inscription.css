@@ -39,11 +39,6 @@ form .field.error small {
 .groupInput{
   position: relative;
 }
-form .field input.input {
-  padding-right: 30px;
-  font-size: 14px;
-  font-family: inherit;
-}
 form .groupInput.success input {
   border-color: rgb(14, 14, 180);
 }
@@ -70,21 +65,4 @@ form .groupInput small {
   
   color: red;
   
-}
-form .field input#email ~ i {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  visibility: hidden;
-}
-form .field input ~ i {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  visibility: hidden;
-}
-.banner-content img {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
 }

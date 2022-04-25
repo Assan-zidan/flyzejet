@@ -1,6 +1,7 @@
 
 import Sidemenu from "../../components/Sidemenu/index";
-const Dashboard = () => {    
+import AddUser from "../../components/AddUser";
+const PageAddUser = () => {    
     return (
         <div className="dashboard">
             <Sidemenu/>
@@ -11,9 +12,10 @@ const Dashboard = () => {
                     </div>
                     <div className="row">
                         <div className="col-md-12">
-                            <h3> dashboard</h3>
+                            <h3> Ajouter un Utilisateur</h3>
                         </div>
-                    </div>   
+                    </div>
+                    <AddUser/>    
                     
                 </div>
             </div>
@@ -23,4 +25,4 @@ const Dashboard = () => {
     
 }
 
-export default Dashboard; 
+export default PageAddUser; 

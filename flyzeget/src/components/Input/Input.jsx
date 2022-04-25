@@ -8,14 +8,12 @@ const Input = (props) => {
                 <label className="label-form" htmlFor={id} >
                     {label}
                 </label>
-                <div className="groupInput">
+                <div className="groupInput ">
                 <input className={className} name={name} id={id} type={type} placeholder={placeholder} required 
                     onChange={onChange}
                     />
                     {}
                     <small className="error"></small>
-                    <i class="fa fa-exclamation-circle"></i>
-                    <i class="fa fa-check-circle"></i>
                 </div>
                     
 
