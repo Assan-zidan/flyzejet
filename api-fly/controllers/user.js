@@ -64,16 +64,10 @@ exports.signup = (req, res, next) => {
                        Email: user.email,
                        Type: user.type
                     }
-                    const Token = TokenGeneration(
-                       userInfo,
-                       TOKEN_SECRET_KEY,
-                       '24h'
-                    )
+                    
                     return res.status(201).json({
                        message: ' Utilisateur enregistré  avec success ! ',
-                       token: Token,
-                       userId: user._id,
-                       userInfo: userInfo
+                       
                     })
                  })
                  .catch((error) =>
